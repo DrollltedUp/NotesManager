@@ -1,6 +1,7 @@
 package main
 
 import (
+	"firstProject/command"
 	"firstProject/crud"
 	"firstProject/storage"
 	"fmt"
@@ -12,9 +13,8 @@ func main() {
 	if err := storage.Load(&notes); err != nil {
 		fmt.Println("Error loading notes:", err)
 	}
-
-	notes.CreateNote("Buy Milk", "Today we buy milk")
-	notes.CreateNote("Buy Bread", "Today we buy Bread")
+	cmdFlag := command.NewCommandFlugs()
+	cmdFlag.Execute(&notes)
 
 	if err := notes.ToggleStatus(0); err != nil {
 		fmt.Println("Error toggling status:", err)
