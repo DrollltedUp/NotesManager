@@ -94,7 +94,7 @@ func (notes *Notes) RenameTitle(index int, title string) error {
 	return nil
 }
 
-func (notes *Notes) print() {
+func (notes *Notes) Print() {
 	table := tablewriter.NewWriter(os.Stdout)
 	table.Header([]string{"#", "Title", "Description", "Status", "Created As", "Completed"})
 	for i, note := range *notes {
